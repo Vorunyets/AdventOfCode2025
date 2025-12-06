@@ -1,5 +1,5 @@
 import re
-
+import math
 
 
 def findCombo(startingDigit, filepath):
@@ -16,11 +16,13 @@ def findCombo(startingDigit, filepath):
                 print(f"{currentSpot} before change of instruction: {instruction}")
                 currentSpot += instruction 
 
-                if currentSpot > 99:
-                    currentSpot = currentSpot % 100 #had +99 here for longest time causing wrong answer.  Highest number is 99, brain wanted to think 99, but actually there were 100 positions, so it has to be mod 100.
+
+                if currentSpot > 99:                  
+                    currentSpot = currentSpot % 100 #had +99 here for longest time causing wrong answer.  Highest number is 99, brain wanted to think 99, but actually there were 100 positions, so it has to be mod 100.                   
                 if currentSpot < 0:
                     while currentSpot < 0:
                         currentSpot = 100 + currentSpot
+                    
 
                 print(line, currentSpot )
 
