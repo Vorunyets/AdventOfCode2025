@@ -12,31 +12,31 @@
 def findIdSum(filepath):
     idCounter = 0
     numbers = []
-    
+
     with open(filepath, 'r') as file:
         content = file.read()
         pairs = content.split(',')
-        
+
         for pair in pairs:
             pair = pair.strip()
             if pair:
                 number = pair.split('-')
                 beginInt = int(number[0])
                 endInt = int(number[1])
-                
+
                 while beginInt <= endInt:
                     numbers.append(beginInt)
                     beginInt += 1
-        
+
         for num in numbers:
             if len(str(num)) % 2 == 0:
                 splitpoint = len(str(num)) // 2
                 idLeft = str(num)[:splitpoint]
                 idRight = str(num)[splitpoint:]
-                
+
                 if idLeft == idRight:
                     idCounter += num
-    
+
     print(idCounter)
     return idCounter
 
@@ -49,11 +49,11 @@ findIdSum('resources/idList.txt')
 #   @endInt = right of -
 #   while @beginInt <= @endInt
 #     add @beginInt to sub-list
-#.     @beginInt ++
+# .     @beginInt ++
 #       For each @id in sub-list
-#           if #numOfDigits is odd or left(1) ==0 
+#           if #numOfDigits is odd or left(1) ==0
 #               return
-#           @splitPoint = strlength / 2 
+#           @splitPoint = strlength / 2
 #                @idLeft= left(@splitpoint)
 #                @idRight = right(@splitpoint)
 #               if @idLeft == @idRight
